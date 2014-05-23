@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>worldofsfx</title>
+<title>World of SFX {% block titlesuffix %}{% endblock %}</title>
 
 <link rel="stylesheet" href="css/main.css" type="text/css" />
 
@@ -13,9 +13,41 @@
 <!--[if lt IE 7]>
 
     <link rel="stylesheet" type="text/css" media="all" href="css/ie6.css"/><![endif]-->
+    <link href="{{ url_for('static', filename='css/uikit.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/uikit.min.js"></script> 
 </head>
 
 <body id="index" class="home">
-    <h1>worldofsfx</h1>
+    <nav class="uk-navbar">
+        <div class="uk-container uk-container-center">
+            <a href="#" class="uk-navbar-brand">World of SFX</a>
+            <ul class="uk-navbar-nav uk-hidden-small uk-navbar-attached">
+                <li><a href="{{ url_for('wos.home') }}">Home</a></li>
+                <li><a href="">Buzz</a></li>
+                <li><a href="">Social</a></li>
+                <li class="{% block eventmenu %}{% endblock %}"><a href="{{ url_for('wos.events') }}">Events</a></li>
+                <li><a href="">Tickets</a></li>
+                <li><a href="">Heroes of SFX</a></li>
+                <li><a href="">Media</a></li>
+                <li><a href="">Beatport</a></li>
+            </ul>
+            <div class="uk-navbar-flip">
+                <a href="#my-id" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas="{target:'#my-id'}"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="my-id" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar">
+            <ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
+                <li class="uk-active"><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

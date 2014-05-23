@@ -6,9 +6,14 @@ from flask import Blueprint, render_template
 #: allow SQA to pick them up when the application is initialized
 from .models import *
 
-mod = Blueprint('example', __name__)
+mod = Blueprint('wos', __name__)
 
 
 @mod.route('/')
 def home():
-    return render_template("example/home.html")
+    return render_template("wos/index.html")
+
+
+@mod.route('/events')
+def events():
+    return render_template("wos/events.html")

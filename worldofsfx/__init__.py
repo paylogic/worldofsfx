@@ -6,7 +6,7 @@ from flask_environments import Environments
 
 from worldofsfx.database import db
 
-from worldofsfx.example.views import mod as example_mod
+from worldofsfx.wos.views import mod as wos_mod
 
 
 def create_app(environment="DEVELOPMENT"):
@@ -37,7 +37,7 @@ def create_app(environment="DEVELOPMENT"):
 
     app.template_folder = app.config.get('TEMPLATE_FOLDER', 'templates')
 
-    app.register_blueprint(example_mod)
+    app.register_blueprint(wos_mod)
 
     db.init_app(app)
 

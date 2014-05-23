@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    An example models.py for use with worldofsfx
+    An wos models.py for use with worldofsfx
 
     Useage::
 
