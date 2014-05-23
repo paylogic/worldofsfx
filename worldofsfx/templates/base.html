@@ -14,8 +14,9 @@
 
     <link rel="stylesheet" type="text/css" media="all" href="css/ie6.css"/><![endif]-->
     <link href="{{ url_for('static', filename='css/uikit.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/uikit.almost-flat.min.css') }}" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/uikit.min.js"></script> 
+    <script src="{{ url_for('static', filename='js/uikit.min.js') }}"></script> 
 </head>
 
 <body id="index" class="home">
@@ -24,8 +25,7 @@
             <a href="#" class="uk-navbar-brand">World of SFX</a>
             <ul class="uk-navbar-nav uk-hidden-small uk-navbar-attached">
                 <li class="uk-active"><a href="{{ url_for('wos.home') }}">Home</a></li>
-                <li><a href="">Buzz</a></li>
-                <li><a href="">Social</a></li>
+                <li><a href="{{ url_for('wos.buzz') }}">Buzz</a></li>
                 <li><a href="{{ url_for('wos.events') }}">Events</a></li>
                 <li><a href="">Tickets</a></li>
                 <li><a href="">Heroes of SFX</a></li>
@@ -41,9 +41,9 @@
     <div id="my-id" class="uk-offcanvas">
         <div class="uk-offcanvas-bar">
             <ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
-                <li class="uk-active"><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="uk-active"><a href="{{ url_for('wos.home') }}">Home</a></li>
+                <li><a href="{{ url_for('wos.buzz') }}">Buzz</a></li>
+                <li><a href="{{ url_for('wos.events') }}">Events</a></li>
             </ul>
         </div>
     </div>

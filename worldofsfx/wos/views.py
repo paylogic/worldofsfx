@@ -17,3 +17,8 @@ def home():
 @mod.route('/events')
 def events():
     return render_template("wos/events.html")
+
+
+@mod.route('/buzz')
+def buzz():
+    return render_template("wos/buzz.html")
