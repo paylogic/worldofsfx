@@ -23,10 +23,10 @@
         <div class="uk-container uk-container-center">
             <a href="#" class="uk-navbar-brand">World of SFX</a>
             <ul class="uk-navbar-nav uk-hidden-small uk-navbar-attached">
-                <li><a href="{{ url_for('wos.home') }}">Home</a></li>
+                <li class="uk-active"><a href="{{ url_for('wos.home') }}">Home</a></li>
                 <li><a href="">Buzz</a></li>
                 <li><a href="">Social</a></li>
-                <li class="{% block eventmenu %}{% endblock %}"><a href="{{ url_for('wos.events') }}">Events</a></li>
+                <li><a href="{{ url_for('wos.events') }}">Events</a></li>
                 <li><a href="">Tickets</a></li>
                 <li><a href="">Heroes of SFX</a></li>
                 <li><a href="">Media</a></li>
