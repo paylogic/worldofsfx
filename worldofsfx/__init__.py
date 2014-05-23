@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_environments import Environments
 
 from worldofsfx.database import db
 
-from worldofsfx.wos.views import mod as wos_mod
+from worldofsfx.wos.views import wos
+from worldofsfx.events.views import events
+from worldofsfx.buzz.views import buzz
 
 
 def create_app(environment="DEVELOPMENT"):
@@ -18,7 +20,7 @@ def create_app(environment="DEVELOPMENT"):
     :param str environment: Specify the name of the configuration object used
                             to build this application object
 
-    Useage::
+    Usage::
         from worldofsfx import create_app
         from unittest import TestCase
 
@@ -37,7 +39,9 @@ def create_app(environment="DEVELOPMENT"):
 
     app.template_folder = app.config.get('TEMPLATE_FOLDER', 'templates')
 
-    app.register_blueprint(wos_mod)
+    app.register_blueprint(wos)
+    app.register_blueprint(events)
+    app.register_blueprint(buzz)
 
     db.init_app(app)
 
