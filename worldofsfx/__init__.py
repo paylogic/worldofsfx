@@ -4,13 +4,13 @@
 from flask import Flask, render_template
 from flask_environments import Environments
 
-from {{PROJECT_NAME}}.database import db
+from worldofsfx.database import db
 
-from {{PROJECT_NAME}}.example.views import mod as example_mod
+from worldofsfx.example.views import mod as example_mod
 
 
 def create_app(environment="DEVELOPMENT"):
-    """{{PROJECT_NAME}} application factory.
+    """worldofsfx application factory.
 
     This function defines a re-usable pattern for instantiating and creating
     application objects.

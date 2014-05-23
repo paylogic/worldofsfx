@@ -3,7 +3,6 @@
 from setuptools import setup
 
 setup(
-    name="{{ PROJECT_NAME }}",
-    version="1.0.0",
-    licence="MIT"
+    name="worldofsfx",
+    version="0.0.1"
 )

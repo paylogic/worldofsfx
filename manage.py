@@ -6,7 +6,7 @@ import subprocess
 
 from flask.ext.script import Manager
 
-from {{PROJECT_NAME}} import create_app
+from worldofsfx import create_app
 
 
 app = create_app()
