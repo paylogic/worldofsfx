@@ -1,6 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 from flask import Flask
 from flask_environments import Environments
 
@@ -9,6 +7,7 @@ from worldofsfx.database import db
 from worldofsfx.wos.views import wos
 from worldofsfx.events.views import events
 from worldofsfx.buzz.views import buzz
+from worldofsfx.beatport.views import beatport
 
 
 def create_app(environment="DEVELOPMENT"):
@@ -42,6 +41,7 @@ def create_app(environment="DEVELOPMENT"):
     app.register_blueprint(wos)
     app.register_blueprint(events)
     app.register_blueprint(buzz)
+    app.register_blueprint(beatport)
 
     db.init_app(app)
 
