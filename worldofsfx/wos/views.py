@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 from flask import Blueprint, render_template
 
 #: Specify each model defined in your models.py for each app here. This will

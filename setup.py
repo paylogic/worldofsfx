@@ -4,5 +4,6 @@ from setuptools import setup
 
 setup(
     name="worldofsfx",
-    version="0.0.1"
+    version="0.0.1dev",
+    packages=['worldofsfx'],
 )

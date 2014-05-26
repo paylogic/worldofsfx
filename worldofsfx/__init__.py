@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from flask import Flask
 from flask_environments import Environments
 
@@ -31,8 +30,11 @@ def create_app(environment="DEVELOPMENT"):
     :returns: flask application
     :rtype: :obj:`flask.Flask`
     """
+    if not environment:
+        env_name = 'DEVELOPMENT'
+    else:
+        env_name = environment.upper()
     app = Flask(__name__)
-    env_name = environment.upper()
     env = Environments(app, default_env=env_name)
     env.from_object('worldofsfx.config')
 

@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 from worldofsfx import create_app
 
 app = create_app()
