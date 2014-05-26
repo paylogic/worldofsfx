@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_environments import Environments
 
@@ -37,6 +38,9 @@ def create_app(environment="DEVELOPMENT"):
     app = Flask(__name__)
     env = Environments(app, default_env=env_name)
     env.from_object('worldofsfx.config')
+    wos_privates = os.getenv('WOS_PRIVATES')
+    if wos_privates:
+        env.from_object(wos_privates)
 
     app.template_folder = app.config.get('TEMPLATE_FOLDER', 'templates')
 
