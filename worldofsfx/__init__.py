@@ -1,4 +1,5 @@
 import os
+import sys
 from flask import Flask
 from flask_environments import Environments
 
@@ -38,9 +39,15 @@ def create_app(environment="DEVELOPMENT"):
     app = Flask(__name__)
     env = Environments(app, default_env=env_name)
     env.from_object('worldofsfx.config')
-    wos_privates = os.getenv('WOS_PRIVATES')
-    if wos_privates:
-        env.from_object(wos_privates)
+    # Try to load a private config file from the WOS_PRIVATES environment variable.
+    wos_privates_filepath = os.getenv('WOS_PRIVATES')
+    if wos_privates_filepath:
+        try:
+            sys.path.append(os.path.dirname(wos_privates_filepath))
+            module_name = os.path.basename(wos_privates_filepath).strip('.py')
+            env.from_object(__import__(module_name))
+        except:
+            pass
 
     app.template_folder = app.config.get('TEMPLATE_FOLDER', 'templates')
 
