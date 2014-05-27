@@ -26,7 +26,8 @@ class Config(object):
     BASE_URL = "http://worldofsfx.com"
     PROJECT_ROOT = path.abspath(path.dirname(__file__))
     TEMPLATE_FOLDER = path.join(PROJECT_ROOT, 'templates')
-
+    BEATPORT_API_USERNAME="your-beatport-api-username"
+    BEATPORT_API_PASSWORD="your-beatport-api-password"
 
 class Development(Config):
     DEBUG = True
